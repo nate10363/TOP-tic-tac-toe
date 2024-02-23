@@ -57,6 +57,13 @@ const displayController = (function() {
             el.disabled = false;
             el.classList.remove('disabled-btn');
         })
+
+        if (displayController.playerValue == 'O') {
+            setTimeout(() => {
+                setComputerValue();
+            }, 900);
+        }
+
     }
 
     return { x, o, playerValue, computerValue, boardBtn, restartBtn, winnerDiv, winnerDeclaration, playNewGameBtn, restartGame }
@@ -77,6 +84,7 @@ displayController.o.addEventListener('click', () => {
     displayController.restartGame();
     displayController.o.classList.add('selected-champion');
     displayController.x.classList.remove('selected-champion');
+    
 })
 
 displayController.boardBtn.forEach((el) => {
@@ -89,6 +97,7 @@ displayController.boardBtn.forEach((el) => {
 displayController.restartBtn.addEventListener('click', () => {
     displayController.restartGame();
     displayController.winnerDiv.style.display = 'none';
+    
 })
 
 displayController.playNewGameBtn.addEventListener('click', () => {
@@ -128,7 +137,6 @@ const setPlayerValue = (val) => {
     }
     
 }
-
 
 const setComputerValue = () => {
 
